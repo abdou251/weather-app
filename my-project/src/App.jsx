@@ -113,7 +113,7 @@ function App() {
         <>
           {' '}
           <div
-            className=' w-100 py-6 px-16 mx-24
+            className=' w-100 py-6 px-8 mx-4
           h-auto mt-12 justify-start flex flex-col  gap-2  rounded-lg shadow-lg bg-slate-800'
           >
             <div className=' flex justify-between'>
@@ -138,11 +138,12 @@ function App() {
             </p>
           </div>
           <div
-            className=' w-100 py-6 px-16 mx-24
+            className=' w-100 py-6 px-8 mx-4
           h-auto mt-12 justify-start flex flex-col  gap-2  rounded-lg shadow-lg bg-slate-800'
           >
-            <p>Sunset: {time[0].sunset}</p>
             <p>Sunrise: {time[1].sunrise}</p>
+            <p>Sunset: {time[0].sunset}</p>
+
             <div className='w-100 h-6  bg-slate-400 rounded-xl'>
               <div style={progressBar}>Humidity{hum}%</div>
             </div>
@@ -168,7 +169,7 @@ const Forcast = ({ props }) => {
       {' '}
       {fiveHours ? (
         <div
-          className=' w-100 py-6 px-16 mx-24 h-auto mt-12 justify-start flex
+          className=' w-100 py-6 px-6 mx-4 h-auto mt-12 justify-start flex
           flex-col gap-2 rounded-lg shadow-lg bg-slate-800'
         >
           <button className='text-white' onClick={() => showFive()}>
@@ -193,10 +194,10 @@ const Forcast = ({ props }) => {
         </div>
       ) : (
         <div
-          className=' w-100 py-6 px-16 mx-24 h-auto mt-12 justify-end flex
+          className=' w-100 py-6 px-16 mx-4 h-auto mt-12 justify-end flex
           flex-col gap-2 rounded-lg shadow-lg bg-slate-800 text-white'
         >
-          <button onClick={() => showFive()}>show</button>
+          <button onClick={() => showFive()}>3 hours forcast</button>
         </div>
       )}
     </>
