@@ -14,14 +14,17 @@ const Forecast: React.FC<Props> = ({ data }) => {
   const [showForecast, setShowForecast] = useState(false)
 
   return showForecast ? (
-    <div className='w-100 py-6 px-6 mx-8 mt-12 flex flex-col gap-2 rounded-lg shadow-lg bg-slate-800 lg:mx-40'>
+    <div
+      className='w-100 py-6 px-6 mx-4 h-auto mt-12 justify-start flex
+          flex-col gap-2 rounded-lg shadow-lg bg-slate-800'
+    >
       <button className='text-white' onClick={() => setShowForecast(false)}>
         Hide
       </button>
       {data.map((item, index) => (
         <div
           key={index}
-          className='flex justify-between items-center p-2 pl-4 bg-slate-500 rounded-lg'
+          className='flex justify-between items-center p-2 pl-4 bg-slate-500 rounded-lg shadow-lg'
         >
           <div>
             <p>{item.dt_txt}</p>
@@ -36,7 +39,10 @@ const Forecast: React.FC<Props> = ({ data }) => {
       ))}
     </div>
   ) : (
-    <div className='lg:mx-40 w-100 py-6 px-16 mx-8 mt-12 flex flex-col gap-2 rounded-lg shadow-lg bg-slate-800 text-white'>
+    <div
+      className='w-100 py-6 px-16 mx-4 h-auto mt-12 justify-center flex
+          flex-col gap-2 rounded-lg shadow-lg bg-slate-800 text-white'
+    >
       <button onClick={() => setShowForecast(true)}>3 hours forecast</button>
     </div>
   )

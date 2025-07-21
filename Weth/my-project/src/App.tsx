@@ -1,13 +1,22 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import './index.css'
-
 import CityForm from './components/CityForm'
 import WeatherCard from './components/WeatherCard'
 import WeatherDetails from './components/WeatherDetails'
 import Forecast from './components/Forecast'
 import type { ForecastItem } from './components/Forecast'
+
 function App() {
+  useEffect(() => {
+    const savedCity = localStorage.getItem('lastCity')
+    const savedWeather = localStorage.getItem('weatherData')
+    const savedForecast = localStorage.getItem('forecastData')
+
+    if (savedCity) setCity1(savedCity)
+    if (savedWeather) setData(JSON.parse(savedWeather))
+    if (savedForecast) setForcast(JSON.parse(savedForecast))
+  }, [])
   interface WeatherData {
     main: {
       pressure: number
@@ -50,6 +59,10 @@ function App() {
         )
         .then((response) => {
           setForcast(response.data.list)
+          localStorage.setItem(
+            'forecastData',
+            JSON.stringify(response.data.list)
+          )
         })
 
       axios
@@ -58,6 +71,8 @@ function App() {
         )
         .then((response) => {
           setData(response.data)
+          localStorage.setItem('weatherData', JSON.stringify(response.data))
+          localStorage.setItem('lastCity', city1)
           setCity1('')
           setTime([
             {
@@ -91,11 +106,11 @@ function App() {
   }, [city1])
 
   return (
-    <>
+    <div className='w-screen h-screen  text-black flex flex-col items-center'>
       <CityForm city={city} setCity={setCity} handleCity={handleCity} />
       {data && (
         <>
-          <div className='lg:flex flex-row lg:w-100 lg:mx-32'>
+          <div className='text-white justify lg:flex lg:flex-row lg:w-100 lg:mx-32'>
             <WeatherCard
               data={data}
               time={time}
@@ -103,16 +118,20 @@ function App() {
               utc={utc}
               currentDate={currentDate}
             />
+          </div>
+          <div className='text-white justify lg:flex lg:flex-row lg:w-100 lg:mx-32'>
             <WeatherDetails
               time={time}
               hum={hum}
               pressure={data.main.pressure}
             />
           </div>
-          <Forecast data={forcast} />
+          <div className='text-white justify lg:flex lg:flex-row lg:w-100 lg:mx-32'>
+            <Forecast data={forcast} />
+          </div>
         </>
       )}
-    </>
+    </div>
   )
 }
 
