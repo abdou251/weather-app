@@ -7,7 +7,7 @@ interface Props {
 }
 
 const CityForm: React.FC<Props> = ({ city, setCity, handleCity }) => (
-  <div className='w-100 flex justify-center'>
+  <div className='w-full flex justify-center'>
     <form
       onSubmit={handleCity}
       className='flex items-center gap-2 py-4 font-medium'
