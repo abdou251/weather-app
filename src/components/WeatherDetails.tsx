@@ -22,7 +22,7 @@ const WeatherDetails: React.FC<Props> = ({ time, hum, pressure }) => {
     <div className='w-full py-6 px-8 mx-8 items-center h-auto mt-12 justify-center flex flex-col  gap-2  rounded-lg shadow-lg bg-slate-800'>
       <p>Sunrise: {time[1]?.sunrise}</p>
       <p>Sunset: {time[0]?.sunset}</p>
-      <div className='relative w-65 lg:w-80 h-6 bg-slate-400 rounded-xl'>
+      <div className='relative w-2/3 lg:w-80 h-6 bg-slate-400 rounded-xl'>
         <div style={progressBarStyle}>{humidity}</div>
       </div>
       <p>Pressure: {pressure} mb</p>
