@@ -110,7 +110,7 @@ function App() {
       <CityForm city={city} setCity={setCity} handleCity={handleCity} />
       {data && (
         <>
-          <div className='text-white justify lg:flex lg:flex-row lg:w-100 lg:mx-32'>
+          <div className='text-white justify lg:flex lg:flex-row w-2/3  lg:mx-16'>
             <WeatherCard
               data={data}
               time={time}
@@ -119,14 +119,14 @@ function App() {
               currentDate={currentDate}
             />
           </div>
-          <div className='text-white justify lg:flex lg:flex-row lg:w-100 lg:mx-32'>
+          <div className='text-white justify lg:flex lg:flex-row w-2/3  lg:mx-16'>
             <WeatherDetails
               time={time}
               hum={hum}
               pressure={data.main.pressure}
             />
           </div>
-          <div className='text-white justify lg:flex lg:flex-row lg:w-100 lg:mx-32'>
+          <div className='text-white justify lg:flex lg:flex-row w-2/3  lg:mx-16'>
             <Forecast data={forcast} />
           </div>
         </>

@@ -15,7 +15,7 @@ const Forecast: React.FC<Props> = ({ data }) => {
 
   return showForecast ? (
     <div
-      className='w-100 py-6 px-6 mx-4 h-auto mt-12 justify-start flex
+      className='w-full py-6 px-6 mx-8 h-auto mt-12 justify-start flex
           flex-col gap-2 rounded-lg shadow-lg bg-slate-800'
     >
       <button className='text-white' onClick={() => setShowForecast(false)}>
@@ -40,7 +40,7 @@ const Forecast: React.FC<Props> = ({ data }) => {
     </div>
   ) : (
     <div
-      className='w-100 py-6 px-16 mx-4 h-auto mt-12 justify-center flex
+      className='w-full py-6 px-16 mx-8 h-auto mt-12 justify-center flex
           flex-col gap-2 rounded-lg shadow-lg bg-slate-800 text-white'
     >
       <button onClick={() => setShowForecast(true)}>3 hours forecast</button>
